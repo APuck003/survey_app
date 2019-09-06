@@ -2,7 +2,7 @@
 
 ## Install (nothing special)
 
-- `git clone https://github.com/ahemmings/survey_project`
+- `git clone https://github.com/APuck003/test_app`
 - Make sure your Ruby environment is set up and configure `database.yml` to point to your MySQL instance for development.
 - Run `bundle install` as you do.
 - Setup the database `rails db:setup`
