@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col s12 m6">
+    <h1><%= @survey.name %></h1>
+
+    <h6>Due Date: <%= @survey.date %></h6>
+
+    <p>
+      <%= link_to "View Questions", survey_survey_questions_path(@survey) %>
+    </p>
+
+<!--    <p>-->
+      <%#= link_to "Add a Question", new_survey_survey_question_path(@survey) %>
+<!--    </p>-->
+
+    <p>
+      <%= link_to "Edit Survey", edit_survey_path(@survey) %>
+    </p>
+
+    <p>
+      <%= link_to "Delete Survey", survey_path(@survey),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    </p>
+
+    <p>
+      <%= link_to "Return to Surveys Home", surveys_path %>
+    </p>
+  </div>
+</div>
