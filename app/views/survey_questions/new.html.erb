@@ -2,20 +2,16 @@
   <div class="col s12 m6">
     <h4>New Survey Question</h4>
 
-    <%#= debug @question %>
+    <%= form_for Question.new do |questions_form| %>
+      <p>
+        <%= questions_form.label :question %>
+        <%= questions_form.text_field :question %>
+      </p>
 
-    <%#= form_with model: @survey, local: true do |f| %>
-    <%= form_for @survey do |f| %>
-      <%= f.fields_for @question do |questions_form| %>
-        <p>
-          <%= questions_form.label :question %>
-          <%= questions_form.text_field :question %>
-        </p>
-
-        <p>
-          <%= questions_form.submit %>
-        </p>
-      <% end %>
+      <p>
+        <%= questions_form.submit %>
+      </p>
     <% end %>
+
   </div>
 </div>

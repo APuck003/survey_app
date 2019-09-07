@@ -6,13 +6,8 @@
       <% @questions.each do |question| %>
         <li class="collection-item">
           <%= question.question %>
-          <%= link_to "Edit", edit_survey_survey_question_path(@questions, :question_id) %>
+          <%= link_to "Edit", edit_survey_survey_question_path(question.survey, question) %>
 
-          <%#= link_to "Delete", survey_survey_questions_path,
-                      :data => {
-                          :confirm => "Are you sure?",
-                          :method => "delete"
-                      } %>
         </li>
       <% end %>
     </ul>
