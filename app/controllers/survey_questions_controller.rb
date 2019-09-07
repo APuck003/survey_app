@@ -3,20 +3,29 @@ class SurveyQuestionsController < ApplicationController
     @questions = Question.where('survey_id = ?', params[:survey_id])
   end
   
-  def new
-    @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.new
-  end
-  
   # def show
   #   @survey = Survey.find(params[:survey_id])
   #   @question = Question.find_by_id(params[:question_id])
   #   render :index
   # end
+
+  def new
+    @survey = Survey.find(params[:survey_id])
+    @question = @survey.questions.new
+  end
   
   def create
+    @question = Question.new(survey_question_params)
     @question.survey_id = params[:survey_id]
     @question.save
+    redirect_to survey_survey_questions_path
+  end
+
+  def edit
+    # @survey = Survey.find(params[:survey_id])
+    # @question = @survey.questions.new
+    @survey = Survey.find(params[:survey_id])
+    @question = @survey.questions.find_by_id(params[:question_id])
   end
   
   def update
@@ -32,10 +41,7 @@ class SurveyQuestionsController < ApplicationController
   
   end
   
-  def edit
-    @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.find_by_id(params[:question_id])
-  end
+  
   
   def destroy
     @survey = Survey.find(params[:survey_id])

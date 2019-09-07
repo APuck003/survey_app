@@ -2,7 +2,7 @@
   <div class="col s12 m6">
     <h4>New Survey Question</h4>
 
-    <%= form_for Question.new do |questions_form| %>
+    <%= form_for [@survey, @survey, Question.new] do |questions_form| %>
       <p>
         <%= questions_form.label :question %>
         <%= questions_form.text_field :question %>
