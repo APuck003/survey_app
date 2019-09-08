@@ -22,30 +22,25 @@ class SurveyQuestionsController < ApplicationController
   end
 
   def edit
-    # @survey = Survey.find(params[:survey_id])
-    # @question = @survey.questions.new
     @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.find_by_id(params[:question_id])
+    @question = @survey.questions.find_by_id(params[:id])
   end
   
   def update
-    # @question.survey_id = params[:survey_id]
-    # @question.update
     @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.find_by_id(params[:question_id])
+    @question = @survey.questions.find(params[:format])
     if @question.update(survey_question_params)
-      redirect_to @survey
+      redirect_to survey_survey_questions_path
     else
-      render 'edit'
+      render :edit
     end
-  
   end
   
   
   
   def destroy
     @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.find(params[:question_id])
+    @question = @survey.questions.find(params[:id])
     @question.destroy
     redirect_to survey_path(@survey)
   end

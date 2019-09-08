@@ -1,3 +1,8 @@
+<style>
+  select {
+    display: block;}
+</style>
+
 <div class="row">
   <div class="col s12 m6">
     <h4>New Survey Question</h4>
@@ -9,8 +14,14 @@
       </p>
 
       <p>
+        <%= questions_form.label "Question Type" %>
+        <%= select_tag(:question_id, options_for_select([["First", 1], ["Second", 2], ["Third", 3]])) %>
+      </p>
+
+      <p>
         <%= questions_form.submit %>
       </p>
+
     <% end %>
 
   </div>
